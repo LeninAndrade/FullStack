@@ -57,6 +57,4 @@ public class Categoria {
 		return true;
 	}
 	
-	
-	
 }
