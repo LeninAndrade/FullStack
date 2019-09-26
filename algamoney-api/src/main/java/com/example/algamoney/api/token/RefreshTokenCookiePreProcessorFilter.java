@@ -42,6 +42,8 @@ public class RefreshTokenCookiePreProcessorFilter implements Filter {
 		chain.doFilter(req, response);
 	}
 	
+	/* Classe criada para adicionar o refresh token do cookie dentro da requisição, já que
+	 * não é possivel mexer mais na requisição depois que ela ja esta feita */
 	static class MyServletRequestWrapper extends HttpServletRequestWrapper {
 		
 		private String refreshToken;
