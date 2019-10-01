@@ -2,6 +2,7 @@ package com.example.algamoney.api.service;
 
 import java.util.Optional;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,5 +29,21 @@ public class LancamentoService {
 			throw new PessoaInexistenteOuInativaException();			
 		}
 		return lancamentoRepository.save(lancamento);
+	}
+
+	public Lancamento atualizar(Long codigo, Lancamento lancamento) {
+		
+		Lancamento lancamentoSalvo = buscarLancamentoPeloCodigo(codigo);
+
+		BeanUtils.copyProperties(lancamento, lancamentoSalvo, "codigo");
+		return lancamentoRepository.save(lancamentoSalvo);
+	}
+
+	private Lancamento buscarLancamentoPeloCodigo(Long codigo) {
+		
+		Lancamento lancamentoSalvo = this.lancamentoRepository.findById(codigo)
+				.orElseThrow(() -> new IllegalArgumentException());
+		
+		return lancamentoSalvo;
 	}
 }
