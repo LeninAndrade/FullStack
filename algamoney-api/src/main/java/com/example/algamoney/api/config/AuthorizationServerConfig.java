@@ -60,7 +60,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 			.tokenEnhancer(tokenEnhancerChain)
 			.reuseRefreshTokens(false)
 			.userDetailsService(this.userDetailsService)
-			.authenticationManager(this.authenticationManager);
+			.authenticationManager(authenticationManager);
 	}
 	
 	@Bean
