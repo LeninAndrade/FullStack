@@ -34,6 +34,7 @@
             <th class="col-data-header">Vencimento</th>
             <th class="col-data-header">Pagamento</th>
             <th class="col-valor-header">Valor</th>
+            <th class="col-actions"></th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-lancamento>
@@ -42,7 +43,11 @@
             <td>{{lancamento.descricao}}</td>
             <td class="col-data-content">{{lancamento.dataVencimento}}</td>
             <td class="col-data-content">{{lancamento.dataPagamento}}</td>
-            <td class="col-valor-content">{{lancamento.valor}}</td>
+            <td class="col-valor-content" [ngStyle]="{color: lancamento.tipo === 'DESPESA' ? 'red' : 'blue'}">{{lancamento.valor}}</td>
+            <td class="col-actions">
+              <a pButton icon="pi pi-pencil" class="icons"></a>
+              <button pButton icon="pi pi-trash" class="icons"></button>
+            </td>
           </tr>
         </ng-template>
       </p-table>

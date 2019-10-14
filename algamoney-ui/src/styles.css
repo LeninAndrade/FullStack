@@ -16,6 +16,11 @@ label {
   }
 }
 
+.col-actions {
+  width: 100px;
+  text-align: center;
+}
+
 .col-valor-header {
   width: 120px;
 }
@@ -31,3 +36,6 @@ label {
   text-align: center;
 }
 
+.icons {
+  margin: 1px!important;
+}
