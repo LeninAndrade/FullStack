@@ -6,11 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-  funcionarios = []; 
-
-  aoAdicionar(funcionario: any) {
-
-    this.funcionarios.push(funcionario);
-  }
+  title = 'algamoney-ui';
 }
